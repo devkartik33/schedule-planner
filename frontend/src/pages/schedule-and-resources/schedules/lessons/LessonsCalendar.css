@@ -1,0 +1,558 @@
+/* Заголовок календаря */
+.rbc-toolbar {
+  background: transparent;
+  border: none;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+.rbc-toolbar button {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rbc-toolbar button:hover {
+  background: #f3f4f6;
+  color: #000000;
+  border-color: #000000;
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.rbc-toolbar .rbc-toolbar-label {
+  color: #000000;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 1rem;
+}
+
+/* Month view */
+.rbc-month-view {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.rbc-date-cell {
+  color: #000000;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rbc-date-cell > a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.rbc-date-cell.rbc-off-range {
+  color: #9ca3af;
+}
+
+.rbc-date-cell.rbc-now {
+  background-color: #f3f4f6;
+  color: #000000;
+  font-weight: 600;
+}
+
+.rbc-today {
+  background-color: #f9fafb;
+}
+
+.rbc-day-bg + .rbc-day-bg,
+.rbc-month-row + .rbc-month-row {
+  border-top: 1px solid #e5e7eb;
+}
+
+.rbc-day-bg {
+  border-right: 1px solid #e5e7eb;
+}
+
+.rbc-month-row {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rbc-row-content {
+  border-left: 1px solid #e5e7eb;
+}
+
+.rbc-time-header {
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.rbc-time-content {
+  border-top: 1px solid #e5e7eb;
+}
+
+.rbc-time-gutter,
+.rbc-time-header-gutter {
+  background-color: #f9fafb;
+  border-right: 1px solid #e5e7eb;
+}
+
+.rbc-time-slot {
+  border-top: 1px solid #f3f4f6;
+  color: #6b7280;
+  font-size: 0.75rem;
+  min-height: 40px;
+}
+
+.rbc-time-slot.rbc-now {
+  background-color: #fef3c7;
+}
+
+.rbc-current-time-indicator {
+  background-color: #ef4444;
+  height: 2px;
+  z-index: 10;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  border-right: 1px solid #f3f4f6;
+  min-height: 40px;
+}
+
+.rbc-day-slot .rbc-time-slot:hover {
+  background-color: #f9fafb;
+}
+
+/* Events */
+.rbc-event {
+  background-color: hsl(var(--foreground));
+  color: hsl(var(--background));
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all 0.2s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rbc-event:hover {
+  background-color: hsl(var(--foreground) / 0.8);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rbc-event:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 1px;
+}
+
+.rbc-event-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.rbc-event-content {
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+/* Event overlays */
+.rbc-overlay {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+}
+
+.rbc-overlay-header {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  padding: 0.75rem;
+  border-bottom: 1px solid hsl(var(--border));
+  font-weight: 600;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Selected slot */
+.rbc-selected {
+  background-color: hsl(var(--primary) / 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .rbc-toolbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .rbc-toolbar .rbc-btn-group {
+    display: flex;
+    justify-content: center;
+  }
+
+  .rbc-event {
+    font-size: 0.6875rem;
+    padding: 0.125rem 0.25rem;
+  }
+}
+
+/* Enhanced event display for better information visibility */
+.rbc-event-content {
+  white-space: pre-line;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.rbc-event-title {
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1.1;
+}
+
+.rbc-event-details {
+  font-size: 0.6875rem;
+  opacity: 0.9;
+  line-height: 1.1;
+}
+
+/* Day view specific adjustments for better space utilization */
+.rbc-day-view .rbc-event,
+.rbc-week-view .rbc-event {
+  /* min-height: auto; */
+  padding: 0.375rem 0.5rem;
+}
+
+.rbc-day-view .rbc-event-content,
+.rbc-week-view .rbc-event-content {
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+/* Make calendar container larger */
+.lessons-calendar-container {
+  height: 700px;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .lessons-calendar-container {
+    height: 800px;
+  }
+}
+
+/* Improve text readability in events */
+.rbc-event * {
+  color: inherit;
+  text-shadow: none;
+}
+
+/* Заголовок месяца/недели */
+.rbc-toolbar-label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 1rem;
+}
+
+/* Заголовки дней недели */
+.rbc-header {
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  padding: 0.75rem 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.rbc-header:last-child {
+  border-right: none;
+}
+
+/* Ячейки календаря */
+.rbc-day-bg,
+.rbc-date-cell {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.rbc-day-bg:hover {
+  background: #f9fafb;
+}
+
+/* События */
+.rbc-event {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  margin-bottom: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 80px !important;
+}
+
+.rbc-event:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Кастомное содержимое события */
+.rbc-event-content {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.rbc-event-title {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rbc-event-details {
+  font-size: 0.7rem;
+  opacity: 0.9;
+  line-height: 1.2;
+}
+
+.rbc-event-details > div {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+/* Для day view делаем события еще больше */
+.rbc-time-view .rbc-event {
+  padding: 0.5rem;
+}
+
+.rbc-time-view .rbc-event-title {
+  font-size: 0.9rem;
+}
+
+.rbc-time-view .rbc-event-details {
+  font-size: 0.8rem;
+}
+
+.rbc-time-view .rbc-row {
+  min-height: unset;
+}
+
+.rbc-time-gutter .rbc-time-slot,
+.rbc-day-slot .rbc-time-slot {
+  height: 60px;
+  line-height: 60px;
+}
+
+.rbc-time-gutter .rbc-timeslot-group,
+.rbc-day-slot .rbc-timeslot-group {
+  min-height: 120px;
+}
+
+/* Стили для ресурсов (группировка) */
+.rbc-resource-header {
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  padding: 0.5rem 0.25rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #374151;
+  text-align: center;
+  min-width: 120px;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rbc-resource-header:last-child {
+  border-right: none;
+}
+
+/* Стили для колонок ресурсов */
+.rbc-day-bg.rbc-resource {
+  border-right: 1px solid #e5e7eb;
+  min-width: 120px;
+  max-width: 180px;
+}
+
+.rbc-day-bg.rbc-resource:last-child {
+  border-right: none;
+}
+
+/* Минимальная ширина для колонок дней с ресурсами */
+.rbc-time-header .rbc-header {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.75rem;
+  padding: 0.5rem 0.25rem;
+}
+
+/* Week view со множественными ресурсами */
+.rbc-calendar.has-resources .rbc-time-header .rbc-header {
+  font-size: 0.7rem;
+  padding: 0.4rem 0.2rem;
+  line-height: 1.2;
+}
+
+/* Компактный режим для многих ресурсов */
+/* .rbc-calendar.has-resources .rbc-time-view .rbc-event {
+  font-size: 0.6rem;
+  padding: 0.2rem;
+  line-height: 1.1;
+} */
+
+.rbc-calendar.has-resources
+  .rbc-event-content.rbc-resource-event
+  .rbc-event-title {
+  font-size: 0.65rem;
+  margin-bottom: 0.1rem;
+}
+
+.rbc-calendar.has-resources
+  .rbc-event-content.rbc-resource-event
+  .rbc-event-details {
+  font-size: 0.55rem;
+}
+
+/* Адаптивные стили для очень маленьких колонок */
+@media (max-width: 1200px) {
+  .rbc-calendar.has-resources .rbc-time-header .rbc-header {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.1rem;
+  }
+
+  .rbc-calendar.has-resources .rbc-time-view .rbc-event {
+    font-size: 0.55rem;
+    padding: 0.15rem;
+  }
+}
+
+/* Улучшаем отображение событий в режиме группировки */
+.rbc-event-content.rbc-resource-event {
+  font-size: 0.7rem;
+}
+
+.rbc-event-content.rbc-resource-event .rbc-event-title {
+  font-size: 0.75rem;
+  margin-bottom: 0.1rem;
+}
+
+.rbc-event-content.rbc-resource-event .rbc-event-details {
+  font-size: 0.65rem;
+}
+
+/* Скрыть некоторые детали при группировке для экономии места */
+.rbc-event-content.grouped-by-group .group-info,
+.rbc-event-content.grouped-by-professor .professor-info,
+.rbc-event-content.grouped-by-room .room-info {
+  display: none;
+}
+
+/* Стиль для скроллбара */
+.calendar-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.calendar-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Стили для Drag & Drop */
+.rbc-addons-dnd .rbc-event {
+  cursor: move;
+}
+
+.rbc-addons-dnd .rbc-event:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.rbc-addons-dnd .rbc-event.rbc-addons-dnd-dragged-event {
+  opacity: 0.7;
+  transform: rotate(5deg);
+  z-index: 1000;
+}
+
+.rbc-addons-dnd .rbc-event.rbc-addons-dnd-drag-preview {
+  opacity: 0.8;
+  border: 2px dashed #666;
+}
+
+/* Стили для resizable events */
+.rbc-addons-dnd .rbc-event.rbc-addons-dnd-resizable {
+  position: relative;
+}
+
+.rbc-addons-dnd .rbc-addons-dnd-resize-ns-anchor {
+  width: 100%;
+  height: 6px;
+  background: transparent;
+  cursor: ns-resize;
+  position: absolute;
+}
+
+.rbc-addons-dnd .rbc-addons-dnd-resize-ns-anchor:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.rbc-addons-dnd .rbc-addons-dnd-resize-anchor-top {
+  top: 0;
+}
+
+.rbc-addons-dnd .rbc-addons-dnd-resize-anchor-bottom {
+  bottom: 0;
+}
+
+/* Стили для drop target */
+.rbc-addons-dnd .rbc-day-bg.rbc-droppable {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.rbc-addons-dnd .rbc-time-slot.rbc-droppable {
+  background-color: rgba(59, 130, 246, 0.1);
+}
