@@ -131,7 +131,7 @@ schedule-planner/
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone https://github.com/yourusername/schedule-planner.git
+git clone https://github.com/Nikitossik/schedule-planner.git
 cd schedule-planner
 ```
 
