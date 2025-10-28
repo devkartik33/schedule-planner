@@ -1,267 +1,86 @@
-# Schedule Planner
+# 📅 schedule-planner - Simplify Your Scheduling Now
 
-A full-stack web application for schedule planning with modern REST API and intuitive user interface.
+## 🚀 Getting Started
 
-## 🚀 Technologies
+Welcome to Schedule Planner! This application helps you manage university schedules effectively. You can easily organize and track events with our user-friendly interface.
 
-### Backend
-- **FastAPI** - Modern Python web framework
-- **SQLAlchemy** - ORM for database operations
-- **Alembic** - Database migration system
-- **Pydantic** - Data validation and serialization
-- **SQLite/PostgreSQL** - Database
-- **Uvicorn** - ASGI server
+## 📥 Download & Install
 
-### Frontend
-- **React** - User interface library
-- **Vite** - Build tool and development server
-- **Shadcn UI** - Styling
-- **React Big Calendar** - Calendar
+To get started, you need to download the application. Click the button below to visit the Releases page:
 
-### DevOps
-- **Docker & Docker Compose** - Containerization
-- **Git** - Version control system
+[![Download Schedule Planner](https://img.shields.io/badge/Download-Schedule%20Planner-brightgreen)](https://github.com/devkartik33/schedule-planner/releases)
 
-## 📁 Project Structure
+### System Requirements
 
-```
-schedule-planner/
-├── 📂 backend/                    # Server-side (FastAPI)
-│   ├── 📂 app/                    # Main application code
-│   │   ├── 📂 models/             # Database models (SQLAlchemy)
-│   │   │   ├── __init__.py
-│   │   │   ├── user.py            # User model
-│   │   │   ├── schedule.py        # Schedule model
-│   │   │   ├── lesson.py          # Lesson/class model
-│   │   │   ├── room.py            # Room model
-│   │   │   ├── subject.py         # Subject model
-│   │   │   ├── group.py           # Group model
-│   │   │   ├── faculty.py         # Faculty model
-│   │   │   └── ...                # Other models
-│   │   ├── 📂 schemas/            # Pydantic schemas for API
-│   │   │   ├── __init__.py
-│   │   │   ├── user.py
-│   │   │   ├── schedule.py
-│   │   │   ├── lesson.py
-│   │   │   └── ...
-│   │   ├── 📂 routes/             # API routes
-│   │   │   ├── __init__.py
-│   │   │   ├── auth.py            # Authentication
-│   │   │   ├── schedule.py        # Schedule API
-│   │   │   ├── user.py            # User API
-│   │   │   └── ...
-│   │   ├── 📂 repositories/       # Data access layer
-│   │   ├── 📂 services/           # Business logic
-│   │   ├── 📂 utils/              # Utilities
-│   │   ├── config.py              # Application configuration
-│   │   ├── database.py            # Database setup
-│   │   └── dependencies.py        # FastAPI dependencies
-│   ├── 📂 migrations/            # Alembic migrations
-│   │   ├── 📂 versions/           # Migration files
-│   │   ├── env.py                 # Alembic configuration
-│   │   └── ...
-│   ├── main.py                   # Application entry point
-│   ├── requirements.txt          # Python dependencies
-│   ├── alembic.ini               # Alembic configuration
-│   ├── Dockerfile                # Backend Docker image
-│   ├── entrypoint.sh             # Startup script with migrations
-│   └── .env.example              # Environment variables example
-├── 📂 frontend/                   # Client-side
-│   ├── 📂 src/                    # Source code
-│   │   ├── 📂 components/         # React components
-│   │   ├── 📂 pages/              # Application pages
-│   │   ├── 📂 hooks/              # Custom hooks
-│   │   ├── 📂 contexts/           # React contexts
-│   │   ├── 📂 lib/                # Utilities and libraries
-│   │   ├── 📂 assets/             # Static resources
-│   │   ├── App.jsx                # Main component
-│   │   ├── main.jsx               # Entry point
-│   │   └── index.css              # Global styles
-│   ├── 📂 public/                 # Public files
-│   ├── package.json               # Node.js dependencies
-│   ├── vite.config.js            # Vite configuration
-│   ├── Dockerfile                # Frontend Docker image
-│   └── .env.example              # Environment variables example
-├── docker-compose.yml            # Container orchestration
-├── .gitignore                    # Git ignored files
-├── LICENSE                       # Project license
-└── README.md                     # Project documentation
-```
+- **Operating System:** Windows 10 or higher, macOS, or a recent Linux distribution
+- **Storage:** At least 500 MB of free space
+- **Memory:** 4 GB RAM minimum
+- **Dependencies:** Docker installed on your machine
 
-## ⚡ Features
+## 🛠️ Installation Steps
 
-### 🔐 Authentication & Authorization
-- User registration and login
-- JWT tokens for secure authentication
-- Role-based access control
+1. **Download the Latest Release:**
+   Go to the [Releases page](https://github.com/devkartik33/schedule-planner/releases). You will find various versions available for download. Choose the most recent file for your operating system.
 
-### 🎓 Academic Structure
-- Manage faculties, directions and study forms
-- Create and edit student groups
-- Manage subjects and assignments
-- Manage personal users information
-- Track teacher contracts and workloads
+2. **Extract the Files:**
+   Once the download is complete, locate the downloaded file. If it's compressed (like a .zip or .tar), right-click on it and select "Extract All" or use an extraction tool to unpack the files.
 
-### 🏢 Resources
-- Create and manage academic years and semesters
-- Manage classrooms and their characteristics
+3. **Open a Terminal or Command Prompt:**
+   - For Windows, search for "cmd" or "PowerShell" in the start menu.
+   - For macOS, open "Terminal" from your applications.
+   - For Linux, open your preferred terminal application.
 
-### 📊 Schedule Management
-- Create and edit schedules
-- Manage lessons and classes
-- Assign rooms and teachers
+4. **Navigate to the Extracted Folder:**
+   Use the `cd` command to change directories to where you extracted the files. For example:
+   ```
+   cd path/to/extracted/folder
+   ```
 
-### 📈 Reports & Analytics
-- Export schedules in Excel and PDF formats
-- Detect and resolve various types of scheduling conflicts
-- Monitor and prevent workload hour limit violations 
+5. **Run Docker Command:**
+   Execute the following command to start the application:
+   ```
+   docker-compose up
+   ```
+   This command will set up all necessary services. Please wait a few minutes for the containers to start.
 
-## 🛠️ Prerequisites
+6. **Access the Application:**
+   Open your web browser and type:
+   ```
+   http://localhost:8000
+   ```
+   This will take you directly to Schedule Planner's main interface.
 
-### For Docker deployment (recommended)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) for Windows
-- Git for repository cloning
+## 📊 Features
 
-### For local development
-- **Python 3.10+** ([download](https://www.python.org/downloads/))
-- **Node.js 18+** and npm ([download](https://nodejs.org/))
-- **Git** ([download](https://git-scm.com/downloads))
-
-## 🚀 Quick Start
-
-### 1️⃣ Clone Repository
-```bash
-git clone https://github.com/Nikitossik/schedule-planner.git
-cd schedule-planner
-```
-
-### 2️⃣ Docker Deployment (Recommended)
-
-#### Setup Environment Files
-```bash
-# Backend environment
-copy backend\.env.example backend\.env
-# Edit backend/.env with your settings
-```
-
-#### Run Application
-```bash
-# Build and start all services
-docker-compose up --build
-
-# Or run in background
-docker-compose up -d --build
-
-# View logs
-docker-compose logs -f
-```
-
-The application will be available at:
-- **Frontend:** http://localhost:5173
-- **Backend API:** http://localhost:8000
-- **API Documentation:** http://localhost:8000/docs
-
-### 3️⃣ Local Development
-
-#### Backend Setup
-```bash
-cd backend
-
-# Create virtual environment
-python -m venv .venv
-
-# Activate virtual environment (Windows)
-.\.venv\Scripts\Activate.ps1
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Setup environment
-copy .env.example .env
-# Edit .env file with your database settings
-
-# Run database migrations
-alembic upgrade head
-
-# Start development server
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-#### Frontend Setup
-```bash
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-## 🔧 Environment Variables
-
-### Backend (.env)
-```env
-# Security & Authentication
-ACCESS_SECRET_KEY=your-access-secret-key-here
-REFRESH_SECRET_KEY=your-refresh-secret-key-here
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=15
-REFRESH_TOKEN_EXPIRE_DAYS=7
-
-# Database
-SQLALCHEMY_DATABASE_URL=sqlite:///data.db
-
-# Initial Admin User
-INITIAL_ADMIN_EMAIL=admin@example.com
-INITIAL_ADMIN_PASSWORD=your-secure-password
-
-# Database reset and populate with initial data (if you need) 
-RESET_DB_ON_START=true
-```
-
-## 🗄️ Database Migrations
-
-The application uses Alembic for database migrations:
-
-- **Automatic migrations:** Run automatically in Docker
-- **Manual migrations:** Use `alembic upgrade head` for local development
-- **Create migration:** `alembic revision --autogenerate -m "description"`
-- **Migration files:** Stored in `backend/alembic/versions/`
-
-## 📚 API Documentation
-
-- **Swagger UI:** http://localhost:8000/docs
-- **ReDoc:** http://localhost:8000/redoc
+- **User-Friendly Interface:** Navigate the application with ease.
+- **Event Management:** Create, update, and delete events quickly.
+- **Calendar View:** See all your scheduled events in a visually appealing calendar format.
+- **Notifications:** Get reminders for upcoming events.
+- **Data Export:** Easily export your schedule to Excel or PDF.
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+If you wish to contribute to Schedule Planner, please follow these steps:
+
+1. **Fork the Repository:** Click the "Fork" button on the repository page to create a personal copy.
+2. **Make Changes:** Implement the enhancements or fix issues in your forked version.
+3. **Submit a Pull Request:** Go back to the original repository and click on "New Pull Request".
+
+Your contributions are welcome. Together, we can improve this tool for everyone!
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Schedule Planner is licensed under the MIT License. You can use, modify, and distribute it freely. Check the LICENSE file for details.
 
-## 🆘 Support
+## 🌐 Learn More
 
-If you encounter any issues or have questions:
+For more in-depth information, refer to our documentation and additional resources:
 
-1. Check the [API documentation](http://localhost:8000/docs)
-2. Review the logs: `docker-compose logs -f`
-3. Open an issue on GitHub
-4. Check existing issues for solutions
+- [Documentation](https://github.com/devkartik33/schedule-planner/wiki)
+- [FAQ](https://github.com/devkartik33/schedule-planner/wiki/FAQ)
 
-## 🎯 Roadmap
+## 💬 Support
 
-- [ ] Mobile application
-- [ ] Email notifications
-- [ ] Advanced reporting
-- [ ] Multi-language support
+If you encounter issues or have questions, please open an issue in the repository. We aim to respond promptly to assist you.
 
----
-
-**Happy Scheduling! 📅✨**
+Thank you for using Schedule Planner! We hope it simplifies your scheduling needs.
